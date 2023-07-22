@@ -1,8 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Testing the jenkins libs') {
-            sh 'echo testing the jenkins libs'
+        stage('Test') {
+            steps {
+                echo 'testing the jenkins libs'
+            }
         }
     }
 }
