@@ -8,10 +8,16 @@ pipeline {
             }
         }
         stage('clone') {
-            git branch: 'main', credentialsId: 'jenkinstest', url: 'https://github.com/karthiksaranam/jenkins.git'
+            steps {
+                git branch: 'main', credentialsId: 'jenkinstest', url: 'https://github.com/karthiksaranam/jenkins.git'
+            }
+            
         }
         stage('build') {
-            sh 'docker build .'
+            steps {
+                sh 'docker build .'
+            }
+            sh "cd ${workspace}"
         }
     }
 }
